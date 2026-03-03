@@ -3,6 +3,7 @@
 Este código implementa um sistema bancário simples via terminal, utilizando Programação Orientada a Objetos (POO).
 
 **Ele permite:**
+
 - Criar clientes
 - Criar contas correntes
 - Realizar depósitos
@@ -17,18 +18,21 @@ Este código implementa um sistema bancário simples via terminal, utilizando Pr
 O sistema é composto por:
 
 **Entidades principais**
+
 - `Cliente`
 - `PessoaFisica`
 - `Conta`
 - `ContaCorrente`
 
 **Histórico**
+
 - Camada de transações
 - `Transacao` (classe abstrata)
 - `Saque`
 - `Deposito`
 
 **Camada de interface**
+
 - Funções de menu e operações (`depositar`, `sacar`, etc.)
 - `main()` que controla o fluxo do programa
 
@@ -43,10 +47,12 @@ class Cliente:
 ```
 
 **Atributos:**
+
 - `endereco`
 - `contas` (lista de contas associadas)
 
 **Métodos:**
+
 - `realizar_transacao(conta, transacao)`
 - `adicionar_conta(conta)`
 
@@ -63,6 +69,7 @@ class PessoaFisica(Cliente):
 ```
 
 **Atributos adicionais:**
+
 - `nome`
 - `data_nascimento`
 - `cpf`
@@ -80,6 +87,7 @@ class Conta:
 ```
 
 **Atributos protegidos:**
+
 - `_saldo`
 - `_numero`
 - `_agencia`
@@ -87,13 +95,16 @@ class Conta:
 - `_historico`
 
 **Propriedades:**
+
 - `saldo`, `numero`, `agencia`, `cliente`, `historico`
 
 **Métodos principais:**
+
 - `sacar(valor)`
 - `depositar(valor)`
 
 **Regras:**
+
 - Não permite saque maior que o saldo
 - Não permite valores negativos
 - Retorna `True` ou `False` indicando sucesso
@@ -109,6 +120,7 @@ class ContaCorrente(Conta):
 ```
 
 **Regras adicionais:**
+
 - Limite de valor por saque (`_limite = 500`)
 - Limite de número de saques (`_limite_saques = 3`)
 
@@ -197,20 +209,25 @@ Exibe o menu interativo:
 ## 🔍 Funções Operacionais
 
 ### `filtrar_cliente(cpf, clientes)`
+
 Busca cliente pelo CPF.
 
 ### `recuperar_conta_cliente(cliente)`
+
 Retorna a primeira conta do cliente.
 
 > ⚠️ **Observação:** Há um comentário indicando melhoria futura:
+>
 > ```python
 > # FIXME: não permite cliente escolher a conta
 > ```
+>
 > Atualmente o sistema sempre usa a primeira conta da lista.
 
 ### `depositar(clientes)`
 
 **Fluxo:**
+
 1. Solicita CPF
 2. Busca cliente
 3. Solicita valor
@@ -223,6 +240,7 @@ Fluxo idêntico ao depósito, mas usando `Saque`.
 ### `exibir_extrato(clientes)`
 
 Exibe:
+
 - Lista de transações
 - Saldo atual
 
